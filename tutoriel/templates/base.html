@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/static/css/bootstrap.min.css" media="screen">
+		<link rel="stylesheet" href="/static/tutoriel.css" >
+		<title>{% block title %} Tutoriel Lpro {% endblock %}</title>
+	</head>
+
+	<body>
+		<div class="navbar navbar-inverse">
+			<div class="pull-right logio">
+				{% if user.is_authenticated %}
+					Bonjour <span class="username">[{{user}}]</span>
+					<a href="/logout">Logout</a>
+						{% else %}
+					<a href="/login">Login</a><br/>
+
+						{% endif %}		
+			</div>
+			
+			<h1 class="heading">
+				{% block heading %}Tutoriel{% endblock %}
+			</h1>
+		
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Bibliothèque@Lpro</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li id="tab-home"><a href="/"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+					<li id="tab-authors"><a href="/authors"><i class="glyphicon glyphicon-user"></i> Auteurs</a></li>
+					<li id="tab-books"><a href="/books"><i class="glyphicon glyphicon-book"></i> Livres</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			
+			<div class="container">
+				<div class="main">
+					{% block main %}
+				
+					{% endblock %}
+				</div>
+			</div>
+			{% block libraries %} 
+				<script type="text/javascript" src="/dist/js/jquery-2.0.3.min.js"></script> 
+				<script type="text/javascript" src="/dist/js/bootstrap.min.js"></script> 
+			{% endblock %}
+				<script type="text/javascript" >
+					var active_tab='#tab-NONE';
+					{% block js %}{% endblock %}
+					$(activate_tab).addClass('active');
+				</script>
+	</body>
+</html>

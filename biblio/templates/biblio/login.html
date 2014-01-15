@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} | Home{% endblock %}
+{% block heading %} Login {% endblock %}
+
+{% block main %}
+<form href="/login" method="post">{% csrf_token %}
+<table class="form">
+	{{form.as_table}}
+</table>
+	<input type="submit" value="login" />
+</form>
+{% if errmsg %}
+<p>{{errmsg}}</p>
+{% endif %}
+{% endblock %}

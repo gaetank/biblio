@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block heading %}Ajouter un auteur{% endblock %}
+
+{% block main %}
+Le livre a bien été ajouté !
+<a href="{% url "biblio.views.show_books" %}">Retourner à la page des livres</a>
+{% endblock %}

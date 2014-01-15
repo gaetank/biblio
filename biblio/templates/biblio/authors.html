@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} | Home{% endblock %}
+{% block heading %} Auteurs {% endblock %}
+
+{% block main %}
+	<!--{% if user.perms.biblio.can_edit_database %}{% endif %}-->
+	<a href="/ajouter_auteur">Ajouter un auteur</a>
+	
+	<ul>
+		{% for a in authors%}
+			<li>{{ a }}</li>
+		{% endfor %}
+	</ul> 
+{% endblock %} 
+
+
+

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} | Home{% endblock %}
+{% block heading %} Livres {% endblock %}
+
+	{% block main %}
+	<a href="{% url "biblio.views.ajouter_livre" %}"">Ajouter un livre</a>
+	<ul>
+	{% for a in books %}
+	<li>
+		{{ a.title }}: {{a.subject}}</li> Auteur(s): <br/>
+			{% for b in a.authors.all %} 
+				<a href="author/{{b.pk}}">{{b}}</a><br/>
+			{% endfor %}<br/>
+	{% endfor %}
+	</ul>
+{% endblock %}
+
+{% block js %}
+activate_tab = "#tab-books";
+{% endblock %}

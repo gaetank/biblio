@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}{{ block.super }} | Home{% endblock %}
+{% block heading %} {{author}} {% endblock %}
+
+{% block main %}
+	Livres écrits par {{author}}:<br/><br/>
+	{% for b in author.books.all %}
+		{{ b.title }}:
+		{{ b.subject }}<br/><br/>
+	{% endfor %}
+{% endblock %}
+
+{% block js %}
+activate_tab = "#tab-authors";
+{% endblock %}
