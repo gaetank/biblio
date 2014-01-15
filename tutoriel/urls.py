@@ -22,6 +22,4 @@ urlpatterns = patterns('',
      url(r'^ajouter_auteur/$', "biblio.views.ajouter_auteur"),
      url(r'^ajouter_livre/$', "biblio.views.ajouter_livre"),
      url(r'^login/?$', "biblio.views.login_page"),
-     url(r'^inscription/?$', "biblio.views.inscription"),
-     url(r'^logout/?$', "biblio.views.logout_action"),
 )
